@@ -10,7 +10,7 @@ import {
   SidebarItem,
   SidebarItemGroup,
   SidebarItems,
-  TextInput,
+  TextInput
 } from "flowbite-react";
 import { useState } from "react";
 import {
@@ -37,8 +37,9 @@ export default function App() {
           <Button onClick={() => setIsOpen(true)}>Show navigation</Button>
         </div>
       </div>
+      
       <Drawer open={isOpen} onClose={handleClose}>
-        <DrawerHeader title="MENU" titleIcon={() => <></>} />
+        <DrawerHeader title="Lumina" titleIcon={() => <></>} />
         <DrawerItems>
           <Sidebar
             aria-label="Sidebar with multi-level dropdown example"
