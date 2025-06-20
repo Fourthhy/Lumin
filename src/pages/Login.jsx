@@ -1,12 +1,13 @@
 "use client"
 
 import Text from "../components/Text"
-import SignInComponent from "./SignInComponent";
-import SignUpComponent from "./SignOutComponent";
+import SignInComponent from "../components/SignInComponent";
+import SignUpComponent from "../components/SignUpComponent";
 import { Button, ButtonGroup } from "flowbite-react";
 import { useState } from "react"
 export default function Login() {
     const [action, setAction] = useState("signin");
+    
 
     const handleActionChange = () => {
         if (action === "signin") {
@@ -19,12 +20,12 @@ export default function Login() {
 
     return (
         <>
-            <div className="h-screen w-screen flex flex-col justify-center items-center">
-                <div className="flex items-center gap-2">
-                    <Text size="header" weight="bold">This is Lumina,</Text>
-                    <Text size="subheader" weight="regulat">you're about to {action === "signin" ? "Sign in" : "Sign up"}</Text>
-                </div>
-                <div className="flex flex-col">
+            <div className="h-screen w-screen flex justify-center items-center bg-[#F6F7FA]">
+                <div className="flex flex-col justify-center items-center border-black border-[1px] w-[50%] h-[100%]">
+                    <div className="flex items-center gap-2">
+                        <Text size="header" weight="bold">This is Lumina,</Text>
+                        <Text size="subheader" weight="regulat">you're about to {action === "signin" ? "Sign in" : "Sign up"}</Text>
+                    </div>
 
                     {action === "signin" ? (
                         <>
@@ -49,6 +50,10 @@ export default function Login() {
                             </div>
                         </>
                     )}
+                </div>
+                <div className="w-[50%] h-[100%] border-black border-[1px]">
+                    <img src="/hero_image.jpg" alt="hero image" className="object-cover w-full h-full"
+/>
                 </div>
             </div>
         </>
