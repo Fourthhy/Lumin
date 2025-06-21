@@ -1,4 +1,4 @@
-const extractEmailDomain = (email) => {
+const validateEmailDomain = (email) => {
     // Trim and validate input
     if (typeof email !== 'string') {
         return {
@@ -10,7 +10,6 @@ const extractEmailDomain = (email) => {
 
     // Regular expression for a more robust email validation
     // This regex broadly covers many valid email formats.
-    // For extreme strictness, a more complex regex or dedicated library might be needed.
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(trimmedEmail)) {
@@ -23,12 +22,28 @@ const extractEmailDomain = (email) => {
     const parts = trimmedEmail.split('@');
     const domain = parts[1];
 
+    // Convert domain to lowercase for case-insensitive comparison
+    const lowercasedDomain = domain.toLowerCase();
+
+    // Define the allowed top-level domains (TLDs)
+    const allowedTLDs = ['.com', '.net'];
+
+    // Check if the domain ends with any of the allowed TLDs
+    const isAllowedDomain = allowedTLDs.some(tld => lowercasedDomain.endsWith(tld));
+
+    if (!isAllowedDomain) {
+        return {
+            isValid: false,
+            error: 'Email domain not allowed. Only .com and .net are accepted.'
+        };
+    }
+
     return {
         isValid: true,
-        domain: domain // Now it actually extracts the domain!
+        domain: domain // Returns the original case domain
     };
 };
 
 export {
-    extractEmailDomain
+    validateEmailDomain
 };
