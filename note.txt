@@ -1,0 +1,2 @@
+["#D9E8E6","#7298A9","#668985","#0F2231","#05131D"]; 
+Fade white, glow blue, mushroom stem green, backdrop blue, backdrop black

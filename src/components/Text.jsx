@@ -1,4 +1,4 @@
-export default function Text({children, size, weight}) {
+export default function Text({children, size, weight, color}) {
 
     const weightHandler = () => {
         switch (weight) {
@@ -22,14 +22,23 @@ export default function Text({children, size, weight}) {
             case "header":
                 return `text-[2rem]`
             default:
-                return `text-[1rem]`
+                return `text-[${size}]`
         }
     }
+
+    // const colorHandler = () => {
+    //     if (color !== "") {
+    //         return `text-[${color}]`
+    //     } else {
+    //         return `text-gray-900`
+    //     }
+    // }
+        
 
 
     return (
         <>
-            <p className={`font-Inter text-gray-900 ${weightHandler()} ${sizeHandler()}`}>{children}</p>
+            <p className={`font-Inter} text-gray-900 ${weightHandler()} ${sizeHandler()}`}>{children}</p>
         </>
     )
 }

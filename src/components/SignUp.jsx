@@ -48,7 +48,7 @@ export default function SignUpComponent({ errorMessage }) {
 
     return (
         <>
-            <Card className="min-w-sm max-w-lg">
+            <Card className="min-w-sm max-w-lg h-[350px]">
                 <FloatingLabel 
                     variant="outlined" 
                     value={email} 
